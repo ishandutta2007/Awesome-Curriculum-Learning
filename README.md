@@ -1,5 +1,5 @@
-# Awesome-Curriculum-Learning
-## Curriculum Learning in AI: History, Progression, Variants, & Applications
+# 🚀 Awesome-Curriculum-Learning 🚀\n\n![Banner](assets/banner.svg)
+## 🧠 Curriculum Learning in AI: History, Progression, Variants, & Applications
 
 **Curriculum Learning** is a hardware-aware optimization and data-scheduling paradigm in artificial intelligence that structures the training process of machine learning models by presenting data samples in a targeted sequence of increasing difficulty. Formally conceptualized by Yoshua Bengio et al. in 2009 ("Curriculum Learning"), the framework is heavily inspired by human pedagogy: instead of forcing a student to digest advanced calculus on day one, education initiates with foundational arithmetic before systematically scaling up complexity. 
 
@@ -7,7 +7,7 @@ Traditional machine learning algorithms optimize parameters by shuffling dataset
 
 ---
 
-## 1. The Macro Chronological Evolution
+## 🕒 1. The Macro Chronological Evolution
 
 The technical framework governing data-scheduling progression has transitioned from hand-crafted heuristic filters to automated self-paced tracking, moving toward large-scale foundation reinforcement learning curricula and verifiable test-time search loops.
 
@@ -29,7 +29,7 @@ flowchart LR
 
 ---
 
-## 2. Core Operational & Scheduling Variants
+## ⚙️ 2. Core Operational & Scheduling Variants
 
 Curriculum Learning architectures are strictly categorized based on how data difficulty is computed and how the pacing timeline alters the training matrix.
 
@@ -43,7 +43,7 @@ Curriculum Learning architectures are strictly categorized based on how data dif
 
 ---
 
-## 3. High-Capacity Architectural & Pacing Component Types
+## 🏗️ 3. High-Capacity Architectural & Pacing Component Types
 
 To scale up curriculum scheduling loops over massive distributed high-performance computing configurations, engineering frameworks implement specialized pacing profiles.
 
@@ -54,7 +54,7 @@ To scale up curriculum scheduling loops over massive distributed high-performanc
 
 ---
 
-## 4. Production Engineering Challenges & Cluster Solutions
+## 🚧 4. Production Engineering Challenges & Cluster Solutions
 
 Deploying complex curriculum data schedules across massive distributed high-performance computing clusters introduces unique load-balancing and synchronization bottlenecks.
 
@@ -66,7 +66,7 @@ Deploying complex curriculum data schedules across massive distributed high-perf
 
 ---
 
-## 5. Frontier Real-World AI Industrial Applications
+## 🌍 5. Frontier Real-World AI Industrial Applications
 
 | Year | Application | Paper Link | Description & Link |
 |---|---|---|---|
