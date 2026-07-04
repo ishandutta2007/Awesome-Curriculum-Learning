@@ -36,18 +36,18 @@ flowchart LR
 
 Curriculum Learning architectures are strictly categorized based on how data difficulty is computed and how the pacing timeline alters the training matrix.
 
-### A. Pre-Defined / Heuristic Curriculum Learning
-*   **Mechanism:** Data rows are fully sorted and grouped into discrete complexity tiers prior to launching the training run. The training framework tracks a static, chronological clock schedule, systematically adding harder data blocks to the active optimization pool at fixed epoch milestones.
+- ### A. Pre-Defined / Heuristic Curriculum Learning
+	*   **Mechanism:** Data rows are fully sorted and grouped into discrete complexity tiers prior to launching the training run. The training framework tracks a static, chronological clock schedule, systematically adding harder data blocks to the active optimization pool at fixed epoch milestones.
 
-### B. Self-Paced Learning (SPL / Loss-Driven Curation)
-*   **Mechanism:** Appends an explicit regularization penalty to the objective loss function, governing a parameter $\lambda$ that controls the difficulty gate. At each forward pass, the system solves a joint minimization problem, dynamically choosing to learn only from samples whose training errors fall within the $\lambda$-bounded envelope.
+- ### B. Self-Paced Learning (SPL / Loss-Driven Curation)
+	*   **Mechanism:** Appends an explicit regularization penalty to the objective loss function, governing a parameter $\lambda$ that controls the difficulty gate. At each forward pass, the system solves a joint minimization problem, dynamically choosing to learn only from samples whose training errors fall within the $\lambda$-bounded envelope.
 
-### C. Anti-Curriculum Learning (Reverse Data Scheduling)
-*   **Mechanism:** Inverts the classical pedagogical blueprint completely by forcing the model to ingest the absolute most complex, high-noise, and difficult samples at step zero, progressively smoothing out the data matrix toward simple rows over time.
-*   **Application:** Highly effective for specialized tasks like deep image denoising, fine-tuning over sparse data representations, or training robust classifiers resilient to intense adversarial attacks [INDEX: 16].
+- ### C. Anti-Curriculum Learning (Reverse Data Scheduling)
+	*   **Mechanism:** Inverts the classical pedagogical blueprint completely by forcing the model to ingest the absolute most complex, high-noise, and difficult samples at step zero, progressively smoothing out the data matrix toward simple rows over time.
+	*   **Application:** Highly effective for specialized tasks like deep image denoising, fine-tuning over sparse data representations, or training robust classifiers resilient to intense adversarial attacks [INDEX: 16].
 
-### D. Transfer-Learned / Domain-Specific Curriculums
-*   **Mechanism:** Uses a small, high-capacity auxiliary model (a Mentor Network) to score the entire primary training dataset. The mentor network runs inference passes over the data, calculating perplexity or cross-entropy bounds to establish an empirical difficulty index matrix before the primary student network initializes.
+- ### D. Transfer-Learned / Domain-Specific Curriculums
+	*   **Mechanism:** Uses a small, high-capacity auxiliary model (a Mentor Network) to score the entire primary training dataset. The mentor network runs inference passes over the data, calculating perplexity or cross-entropy bounds to establish an empirical difficulty index matrix before the primary student network initializes.
 
 ---
 
