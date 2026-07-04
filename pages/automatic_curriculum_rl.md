@@ -1,0 +1,1 @@
+# The Automatic Curriculum & Adversarial RL Era\n\nYear: 2018\n\nPaper: [Sukhbaatar et al., 2018](https://arxiv.org/abs/1711.09883)\n\n## Details\nHere is detailed information about this topic.\n\n```mermaid\ngraph TD;\n    A-->B;\n```\n\n[Back to README](../README.md)

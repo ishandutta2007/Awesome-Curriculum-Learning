@@ -19,16 +19,13 @@ flowchart LR
     --> D["Reasoning SFT Cold Starts (Modern Era)<br/>(Verified Reasoning Bootstrapping)"]
 ```
 
-*   **The Hand-Crafted Heuristic Era (Vanilla Curriculum Learning, 2009)**
-    *   *Concept:* The core foundational breakthrough popularized by Yoshua Bengio's lab. Engineers manually designed task-specific rule sets to classify data complexity before training initiated. For example, in early natural language processing, a document's difficulty was scored strictly based on average sentence length or vocabulary rarity metrics, filtering the dataset to feed short, simple sentences first.
-    *   *Limitation:* Highly rigid and biased toward human assumptions. Designing heuristic difficulty measurers required deep domain expertise, and what a human perceives as "easy" frequently fails to align with the mathematical optimization trajectory of a deep neural network graph.
-*   **The Self-Paced Optimization Era (Kumar et al., 2010)**
-    *   *Concept:* Overcame manual heuristic bottlenecks by converting data scheduling into a dynamic, model-driven optimization task. **Self-Paced Learning (SPL)** forced the model to act as its own examiner. During each epoch training pass, the system calculated its localized prediction loss for each data row; samples demonstrating the lowest loss (e.g., the easiest for the model's current parameter state) were retained for gradient updates, while high-loss rows were dynamically masked out until the pacing window expanded.
-*   **The Automatic Curriculum & Adversarial RL Era (~2018–2023)**
-    *   *Concept:* Scaled curriculum tracking up to complex continuous control grids and multi-agent gaming simulators. Frameworks like **Asymmetric Self-Play** and **Teacher-Student Curriculum RL** instantiated dual competing agent topologies: a *Teacher Agent* is task-prompted to dynamically construct environment maps, target mazes, or competitive objectives, optimizing its selections to ensure the *Student Agent* encounters challenges that sit precisely at the edge of its operational capabilities (the zone of proximal development), avoiding both trivial tasks and un-winnable dead ends.
-*   **The Verifiable Reasoning SFT Cold-Start Era (~2024–Present)**
-    *   *Concept:* The current modern state-of-the-art foundation standard engineering advanced reasoning models (such as OpenAI's o-series and DeepSeek-R1) [INDEX: 17, 21]. It resolves the extreme sample-inefficiency wall of large-scale Reinforcement Learning over sparse token spaces [INDEX: 17].
-    *   *Significance:* The infrastructure uses a hardcoded curriculum schedule to manage post-training alignment [INDEX: 17]. The model is initialized using a highly structured **Cold-Start SFT dataset** composed of simple, synthetically generated, and pre-verified multi-step logic traces [INDEX: 17]. Once the model parameters successfully absorb basic step-by-step formatting and verification habits, the curriculum gates unlock, launching the model into unconstrained, autonomous self-play reinforcement learning loops [INDEX: 17].
+| Year | Method | Paper Link | Description & Link |
+|---|---|---|---|
+| 2009 | The Hand-Crafted Heuristic Era | [Bengio et al., 2009](https://arxiv.org) | [Details](pages/hand_crafted_heuristic.md) |
+| 2010 | The Self-Paced Optimization Era | [Kumar et al., 2010](https://arxiv.org) | [Details](pages/self_paced_optimization.md) |
+| 2018 | The Automatic Curriculum & Adversarial RL Era | [Sukhbaatar et al., 2018](https://arxiv.org) | [Details](pages/automatic_curriculum_rl.md) |
+| 2024 | The Verifiable Reasoning SFT Cold-Start Era | [DeepSeek-R1](https://arxiv.org) | [Details](pages/verifiable_reasoning_sft.md) |
+
 
 ---
 
@@ -36,18 +33,13 @@ flowchart LR
 
 Curriculum Learning architectures are strictly categorized based on how data difficulty is computed and how the pacing timeline alters the training matrix.
 
-- ### A. Pre-Defined / Heuristic Curriculum Learning
-	*   **Mechanism:** Data rows are fully sorted and grouped into discrete complexity tiers prior to launching the training run. The training framework tracks a static, chronological clock schedule, systematically adding harder data blocks to the active optimization pool at fixed epoch milestones.
+| Year | Variant | Paper Link | Description & Link |
+|---|---|---|---|
+| 2009 | Pre-Defined / Heuristic Curriculum Learning | [Bengio et al.](https://arxiv.org) | [Details](pages/pre_defined_heuristic.md) |
+| 2010 | Self-Paced Learning | [Kumar et al.](https://arxiv.org) | [Details](pages/self_paced_learning.md) |
+| 2019 | Anti-Curriculum Learning | [Hacohen & Weinshall](https://arxiv.org) | [Details](pages/anti_curriculum.md) |
+| 2018 | Transfer-Learned / Domain-Specific | [Various](https://arxiv.org) | [Details](pages/transfer_learned.md) |
 
-- ### B. Self-Paced Learning (SPL / Loss-Driven Curation)
-	*   **Mechanism:** Appends an explicit regularization penalty to the objective loss function, governing a parameter $\lambda$ that controls the difficulty gate. At each forward pass, the system solves a joint minimization problem, dynamically choosing to learn only from samples whose training errors fall within the $\lambda$-bounded envelope.
-
-- ### C. Anti-Curriculum Learning (Reverse Data Scheduling)
-	*   **Mechanism:** Inverts the classical pedagogical blueprint completely by forcing the model to ingest the absolute most complex, high-noise, and difficult samples at step zero, progressively smoothing out the data matrix toward simple rows over time.
-	*   **Application:** Highly effective for specialized tasks like deep image denoising, fine-tuning over sparse data representations, or training robust classifiers resilient to intense adversarial attacks [INDEX: 16].
-
-- ### D. Transfer-Learned / Domain-Specific Curriculums
-	*   **Mechanism:** Uses a small, high-capacity auxiliary model (a Mentor Network) to score the entire primary training dataset. The mentor network runs inference passes over the data, calculating perplexity or cross-entropy bounds to establish an empirical difficulty index matrix before the primary student network initializes.
 
 ---
 
@@ -55,29 +47,10 @@ Curriculum Learning architectures are strictly categorized based on how data dif
 
 To scale up curriculum scheduling loops over massive distributed high-performance computing configurations, engineering frameworks implement specialized pacing profiles.
 
-*   **Pacing Functions (The Data Volume Accelerator)**
-    *   *Profile:* Governs the active data velocity. The pacing function dictates how the total fraction of the dataset available to the model ($f_t$) expands across the training timeline. Common layouts include *Linear Pacing* (steady data additions), *Geometric Pacing* (rapid early expansions), and *Step-Staircase Pacing* (holding dataset complexity flat until specific training loss milestones are met).
-
-
-```mermaid
-flowchart LR
-    subgraph P["Curriculum Learning Pacing Functions"]
-        A["Training Start"]
-
-        A --> B["Linear Pacing<br/>Constant Growth"]
-
-        A --> C["Step Pacing<br/>Discrete Data Increments"]
-
-        A --> D["Geometric / Exponential Pacing<br/>Slow Start → Rapid Growth"]
-
-        B --> E["Full Dataset"]
-        C --> E
-        D --> E
-    end
-```
-
-*   **Dynamic Data Masking Operators**
-    *   *Profile:* Memory-efficient data gating. Instead of altering or re-shuffling massive data matrices on physical disks, distributed data parallel nodes utilize lightweight, inline masking scripts inside their dataloaders, filtering batch elements dynamically within host system RAM before tensors stream to the GPU.
+| Year | Component | Paper Link | Description & Link |
+|---|---|---|---|
+| 2009 | Pacing Functions | [N/A](#) | [Details](pages/pacing_functions.md) |
+| 2020 | Dynamic Data Masking | [N/A](#) | [Details](pages/dynamic_data_masking.md) |
 
 ---
 
@@ -85,23 +58,22 @@ flowchart LR
 
 Deploying complex curriculum data schedules across massive distributed high-performance computing clusters introduces unique load-balancing and synchronization bottlenecks.
 
-*   **The Distributed Dataloader Load-Imbalance and Thread Stall Wall**
-    *   *The Problem:* In large-scale distributed training setups (such as sharded data-parallel clusters), data rows are divided among separate GPU nodes. If a curriculum schedule assigns an uneven concentration of complex, long-context data samples to Node A while Node B receives rapid, short-context samples, Node B will finish its calculations instantly and enter a dead synchronization wait state, stalling the global cluster `All-Reduce` loop.
-    *   *Mitigation:* Implementing **Length-Grouped Batching and Inter-Node Token Balancing**, forcing the dataloader to pack training shards into buckets of equivalent token densities across all distributed processes concurrently, maximizing cluster compute saturation.
-*   **The Learning Rate Schedule Unalignment Hazard**
-    *   *The Problem:* Standard foundation models utilize deep Cosine Annealing learning rate schedules configured to match a specific token destination. If a model spends its high-velocity max-learning rate steps processing exclusively simple, low-entropy data, it can experience **Over-smoothing Parameter Saturation**, losing the gradient velocity required to learn complex, high-rank structural patterns when the hard data blocks finally unlock during late epochs.
-    *   *Mitigation:* Integrating **Multi-Stage Cooldown Schedules**, reset-stretching the learning rate parameters or layering specialized warm-restart schedules (SGDR style) to inject fresh gradient velocity precisely when the curriculum gates escalate data difficulty.
+| Year | Challenge | Paper Link | Description & Link |
+|---|---|---|---|
+| 2021 | Distributed Dataloader Load-Imbalance | [N/A](#) | [Details](pages/distributed_dataloader.md) |
+| 2020 | Learning Rate Schedule Unalignment Hazard | [N/A](#) | [Details](pages/lr_schedule_unalignment.md) |
+
 
 ---
 
 ## 5. Frontier Real-World AI Industrial Applications
 
-*   **Post-Training Reinforcement Learning Alignment for Reasoning Models (o1 / R1)**
-    *   *Application:* Breaks through the sparse reward bottleneck in advanced mathematical and coding transformers [INDEX: 17, 21]. By deploying a structural curriculum schedule—initializing the reinforcement learning loop over a cold-start dataset of short, pre-verified multi-step thinking traces before expanding to un-vetted, long-horizon Olympiad and software engineering environments—the model internalizes stable verification habits without experiencing gradient stagnation [INDEX: 17].
-*   **Sim-to-Real Trajectory Optimization for Advanced Humanoid Robotics**
-    *   *Application:* Drives next-generation physical intelligence systems. Locomotion stacks are trained inside high-throughput parallel GPU simulators (MuJoCo/Isaac Gym) using strict curriculum tracking: the robot first optimizes its balancing torque vectors on perfectly flat, zero-friction virtual floors, progressively introducing uneven terrains, random external pushing vectors, surface slippages, and heavy payloads as its policy network stabilizes.
-*   **Autonomous Vehicle Perception Training for Critical Edge Cases**
-    *   *Application:* Hardens computer vision perception arrays against volatile physical conditions [INDEX: 1]. The data pipeline implements a progressive curriculum: the convolutional or transformer backbones are trained on clean, pristine, and perfectly lit daylight driving clips first, systematically layering on heavy rain glares, midnight blizzard conditions, and highly chaotic multi-object construction zones to ensure safe boundary tracking [INDEX: 1].
+| Year | Application | Paper Link | Description & Link |
+|---|---|---|---|
+| 2025 | RL Alignment for Reasoning Models | [DeepSeek-R1](https://github.com) | [Details](pages/rl_alignment_reasoning.md) |
+| 2023 | Sim-to-Real Trajectory Optimization | [Various](https://arxiv.org) | [Details](pages/sim_to_real_robotics.md) |
+| 1993 | Autonomous Vehicle Perception Training | [Elman, 1993](https://doi.org) | [Details](pages/autonomous_vehicle_perception.md) |
+
 
 ---
 

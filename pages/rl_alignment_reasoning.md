@@ -1,0 +1,1 @@
+# RL Alignment for Reasoning Models\n\nYear: 2025\n\nPaper: [DeepSeek-R1](https://github.com/deepseek-ai)\n\n## Details\nHere is detailed information about this topic.\n\n```mermaid\ngraph TD;\n    A-->B;\n```\n\n[Back to README](../README.md)

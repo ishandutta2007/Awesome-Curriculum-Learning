@@ -1,0 +1,1 @@
+# Pre-Defined / Heuristic Curriculum Learning\n\nYear: 2009\n\nPaper: [Bengio et al.](https://dl.acm.org/doi/10.1145/1553374.1553380)\n\n## Details\nHere is detailed information about this topic.\n\n```mermaid\ngraph TD;\n    A-->B;\n```\n\n[Back to README](../README.md)

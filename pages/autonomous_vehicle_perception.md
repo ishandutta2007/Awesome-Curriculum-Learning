@@ -1,0 +1,1 @@
+# Autonomous Vehicle Perception Training\n\nYear: 1993\n\nPaper: [Elman, 1993](https://doi.org)\n\n## Details\nHere is detailed information about this topic.\n\n```mermaid\ngraph TD;\n    A-->B;\n```\n\n[Back to README](../README.md)

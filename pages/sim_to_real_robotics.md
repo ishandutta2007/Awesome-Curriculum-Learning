@@ -1,0 +1,1 @@
+# Sim-to-Real Trajectory Optimization\n\nYear: 2023\n\nPaper: [Various](https://arxiv.org)\n\n## Details\nHere is detailed information about this topic.\n\n```mermaid\ngraph TD;\n    A-->B;\n```\n\n[Back to README](../README.md)

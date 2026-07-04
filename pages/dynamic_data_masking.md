@@ -1,0 +1,1 @@
+# Dynamic Data Masking\n\nYear: 2020\n\nPaper: [N/A]()\n\n## Details\nHere is detailed information about this topic.\n\n```mermaid\ngraph TD;\n    A-->B;\n```\n\n[Back to README](../README.md)

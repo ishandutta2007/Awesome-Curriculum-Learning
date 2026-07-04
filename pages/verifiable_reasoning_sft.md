@@ -1,0 +1,1 @@
+# The Verifiable Reasoning SFT Cold-Start Era\n\nYear: 2024\n\nPaper: [DeepSeek-R1](https://arxiv.org/abs/2501.12948)\n\n## Details\nHere is detailed information about this topic.\n\n```mermaid\ngraph TD;\n    A-->B;\n```\n\n[Back to README](../README.md)

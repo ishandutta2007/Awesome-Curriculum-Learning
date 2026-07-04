@@ -1,0 +1,1 @@
+# The Self-Paced Optimization Era\n\nYear: 2010\n\nPaper: [Kumar et al., 2010](https://proceedings.neurips.cc/paper/2010/hash/e57c6b956a6521b28495f2886ca0977a-Abstract.html)\n\n## Details\nHere is detailed information about this topic.\n\n```mermaid\ngraph TD;\n    A-->B;\n```\n\n[Back to README](../README.md)

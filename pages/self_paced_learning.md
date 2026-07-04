@@ -1,0 +1,1 @@
+# Self-Paced Learning\n\nYear: 2010\n\nPaper: [Kumar et al.](https://proceedings.neurips.cc/paper/2010)\n\n## Details\nHere is detailed information about this topic.\n\n```mermaid\ngraph TD;\n    A-->B;\n```\n\n[Back to README](../README.md)
