@@ -12,7 +12,11 @@ Traditional machine learning algorithms optimize parameters by shuffling dataset
 The technical framework governing data-scheduling progression has transitioned from hand-crafted heuristic filters to automated self-paced tracking, moving toward large-scale foundation reinforcement learning curricula and verifiable test-time search loops.
 
 ```mermaid
-[Heuristic Sorting (Bengio, 2009)] ───> [Self-Paced Learning (Kumar, 2010)] ───> [Automatic Curriculum RL (2020)] ───> [Reasoning SFT Cold-Starts (Modern Era)](Rigid Hand-Tuned Complexity Rules)       (Dynamic Model-Loss Driven Pacing)           (Adversarial Multi-Agent Task Builders)     (Compiler-Verified Logic Bootstrap Loops)
+flowchart LR
+    A["Heuristic Curriculum Learning (Bengio, 2009)<br/>(Hand-Crafted Difficulty Ordering)"]
+    --> B["Self-Paced Learning (Kumar et al., 2010)<br/>(Loss-Driven Adaptive Sample Selection)"]
+    --> C["Automatic Curriculum Learning for RL (2020)<br/>(Automatic Task Generation & Adaptive Pacing)"]
+    --> D["Reasoning SFT Cold Starts (Modern Era)<br/>(Verified Reasoning Bootstrapping)"]
 ```
 
 *   **The Hand-Crafted Heuristic Era (Vanilla Curriculum Learning, 2009)**
@@ -54,7 +58,24 @@ To scale up curriculum scheduling loops over massive distributed high-performanc
 *   **Pacing Functions (The Data Volume Accelerator)**
     *   *Profile:* Governs the active data velocity. The pacing function dictates how the total fraction of the dataset available to the model ($f_t$) expands across the training timeline. Common layouts include *Linear Pacing* (steady data additions), *Geometric Pacing* (rapid early expansions), and *Step-Staircase Pacing* (holding dataset complexity flat until specific training loss milestones are met).
 
-The Pacing Function Velocity Profiles1.0 ┌─────────────────────────────────────────────────────────────│                                             / [Linear]│                                            /Fraction│                                    ┌──────┘ [Step-Staircase]of Data │                                    │(f_t)   │                            ┌───────┘│                 __________/ [Geometric / Exponential]0.0 └─────────────────┴───────────────────────────────────────────Step 0                                             Terminal EpochTraining Timeline (t)
+
+```mermaid
+flowchart LR
+    subgraph P["Curriculum Learning Pacing Functions"]
+        A["Training Start"]
+
+        A --> B["Linear Pacing<br/>Constant Growth"]
+
+        A --> C["Step Pacing<br/>Discrete Data Increments"]
+
+        A --> D["Geometric / Exponential Pacing<br/>Slow Start → Rapid Growth"]
+
+        B --> E["Full Dataset"]
+        C --> E
+        D --> E
+    end
+```
+
 *   **Dynamic Data Masking Operators**
     *   *Profile:* Memory-efficient data gating. Instead of altering or re-shuffling massive data matrices on physical disks, distributed data parallel nodes utilize lightweight, inline masking scripts inside their dataloaders, filtering batch elements dynamically within host system RAM before tensors stream to the GPU.
 
